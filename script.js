@@ -19,28 +19,31 @@ function getComputerChoice() {
 if player puts rock and computer choose paper put "You lose, paper beats rock!"
 that's the logic, you have to make too that the parameter player can receive input without
 case sensitive*/ 
-function playRound(player,computer) {
-    player = player.toLowerCase() 
+function playRound(player,computer=getComputerChoice()) {
+    player = prompt("Rock, paper or scissors?");
+    player = player.toLowerCase(); 
     if (player=="rock" && computer=="paper") {
-        return `You lose, ${computer} beats ${player}`;
+        console.log( `You lose, ${computer} beats ${player}`);
     } else if (player=="paper" && computer=="scissors") {
-        return `You lose, ${computer} beats ${player}`;
+        console.log( `You lose, ${computer} beats ${player}`);
     } else if (player=="scissors" && computer=="rock") {
-        return `You lose, ${computer} beats ${player}`;
+        console.log( `You lose, ${computer} beats ${player}`);
     } else if (player==computer) {
-        return "TIE!"
+        console.log( "TIE!")
     } else {
-        return `You win, ${player} beats ${computer}`;
+        console.log( `You win, ${player} beats ${computer}`);
     }
 } 
 
 /*let player = "ScisSORS";
-let computer = getComputerChoice()
 console.log(playRound(player,computer));*/
+//computer = getComputerChoice()
 
+//this function has to run the game 5 times
 function game() {
-    for (i=0;i<5;i++) {
+    for (let i=0;i<5;i++) {
         playRound()
     }
 }
 
+game()
