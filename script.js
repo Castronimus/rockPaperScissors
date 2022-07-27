@@ -20,6 +20,7 @@ if player puts rock and computer choose paper put "You lose, paper beats rock!"
 that's the logic, you have to make too that the parameter player can receive input without
 case sensitive*/ 
 function playGame(player,computer) {
+    player = player.toLowerCase() 
     if (player=="rock" && computer=="paper") {
         return `You lose, ${computer} beats ${player}`;
     } else if (player=="paper" && computer=="scissors") {
@@ -33,7 +34,7 @@ function playGame(player,computer) {
     }
 } 
 
-let player = "rock";
+let player = "ScisSORS";
 let computer = getComputerChoice()
 
 console.log(playGame(player,computer));
