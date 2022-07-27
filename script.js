@@ -38,4 +38,9 @@ function playRound(player,computer) {
 let computer = getComputerChoice()
 console.log(playRound(player,computer));*/
 
+function game() {
+    for (i=0;i<5;i++) {
+        playRound()
+    }
+}
 
