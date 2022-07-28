@@ -19,25 +19,36 @@ function getComputerChoice() {
 if player puts rock and computer choose paper put "You lose, paper beats rock!"
 that's the logic, you have to make too that the parameter player can receive input without
 case sensitive*/ 
+
+
+let scoreUser = 0;
+let scorePc = 0;
+
 function playRound(player,computer=getComputerChoice()) {
-    player = prompt("Rock, paper or scissors?");
-    player = player.toLowerCase(); 
+    player = prompt("Rock, paper or scissors?"); //input
+    player = player.toLowerCase(); //the input is not case sensitive
     if (player=="rock" && computer=="paper") {
         console.log( `You lose, ${computer} beats ${player}`);
+        scorePc++
+        console.log(`Your score is ${scoreUser}, the score of the pc is ${scorePc}`)
     } else if (player=="paper" && computer=="scissors") {
         console.log( `You lose, ${computer} beats ${player}`);
+        scorePc++
+        console.log(`Your score is ${scoreUser}, the score of the pc is ${scorePc}`)
     } else if (player=="scissors" && computer=="rock") {
         console.log( `You lose, ${computer} beats ${player}`);
+        scorePc++
+        console.log(`Your score is ${scoreUser}, the score of the pc is ${scorePc}`)
+
     } else if (player==computer) {
         console.log( "TIE!")
+        console.log(`Your score is ${scoreUser}, the score of the pc is ${scorePc}`)
     } else {
         console.log( `You win, ${player} beats ${computer}`);
+        scoreUser++
+        console.log(`Your score is ${scoreUser}, the score of the pc is ${scorePc}`)
     }
 } 
-
-/*let player = "ScisSORS";
-console.log(playRound(player,computer));*/
-//computer = getComputerChoice()
 
 //this function has to run the game 5 times
 function game() {
@@ -45,5 +56,17 @@ function game() {
         playRound()
     }
 }
+game() //Execute the game
 
-game()
+
+
+let whoWin = function() {
+    if (scorePc>scoreUser) {
+        console.log("PC WINS")
+    } else {
+        console.log("YOU WIN!")
+    }
+};
+
+whoWin()
+
