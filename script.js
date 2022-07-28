@@ -41,8 +41,7 @@ function playRound(player,computer=getComputerChoice()) {
         console.log(`Your score is ${scoreUser}, the score of the pc is ${scorePc}`)
 
     } else if (player==computer) {
-        console.log( "TIE!")
-        console.log(`Your score is ${scoreUser}, the score of the pc is ${scorePc}`)
+        console.log( "TIE!");
     } else {
         console.log( `You win, ${player} beats ${computer}`);
         scoreUser++
@@ -63,10 +62,13 @@ game() //Execute the game
 let whoWin = function() {
     if (scorePc>scoreUser) {
         console.log("PC WINS")
-    } else {
+    } else if (scoreUser>scorePc) {
         console.log("YOU WIN!")
+    } else {
+        console.log("No one wins TIE!")
     }
+        
 };
 
-whoWin()
+whoWin() //Execute who wins
 
