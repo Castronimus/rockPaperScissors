@@ -14,3 +14,10 @@ body {
     flex-direction: column;
 }
 
+.button-container {
+    display: flex;
+    gap: 10em;
+    margin-top: 1em;
+
+}
+
