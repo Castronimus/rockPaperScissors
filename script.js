@@ -25,7 +25,7 @@ let scoreUser = 0;
 let scorePc = 0;
 
 function playRound(player,computer=getComputerChoice()) {
-    player = prompt("Rock, paper or scissors?"); //input
+   // player = prompt("Rock, paper or scissors?"); //input
     player = player.toLowerCase(); //the input is not case sensitive
     if (player=="rock" && computer=="paper") {
         console.log( `You lose, ${computer} beats ${player}`);
@@ -50,12 +50,12 @@ function playRound(player,computer=getComputerChoice()) {
 } 
 
 //this function has to run the game 5 times
-function game() {
+/*function game() {
     for (let i=0;i<5;i++) {
         playRound()
     }
 }
-game() //Execute the game
+game() //Execute the game*/
 
 
 
@@ -70,5 +70,26 @@ let whoWin = function() {
         
 };
 
-whoWin() //Execute who wins
+//whoWin() //Execute who wins
+
+//EVENT LISTENER
+/*const button = document.querySelector("button");
+
+button1.addEventListener("click", () => {
+    playRound("rock")
+})*/
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        if (button.textContent=="ROCK") {
+            playRound("rock");
+        } else if (button.textContent=="PAPER") {
+            playRound("paper");
+        } else {
+            playRound("scissors")
+        }        
+    });
+});
 
