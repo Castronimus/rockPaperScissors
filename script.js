@@ -26,26 +26,29 @@ let scorePc = 0;
 
 function playRound(player,computer=getComputerChoice()) {
    // player = prompt("Rock, paper or scissors?"); //input
+    const choiceResult = document.querySelector(".choiceResult")
+    const scoreResult = document.querySelector(".scoreResult");
     player = player.toLowerCase(); //the input is not case sensitive
     if (player=="rock" && computer=="paper") {
-        console.log( `You lose, ${computer} beats ${player}`);
+        choiceResult.textContent = `You choose ${player}, computer choose ${computer}`;
         scorePc++
-        console.log(`Your score is ${scoreUser}, the score of the pc is ${scorePc}`)
+        scoreResult.textContent = `Your score is ${scoreUser}, the score of the pc is ${scorePc}`;
     } else if (player=="paper" && computer=="scissors") {
-        console.log( `You lose, ${computer} beats ${player}`);
+        choiceResult.textContent = `You choose ${player}, computer choose ${computer}`;
         scorePc++
-        console.log(`Your score is ${scoreUser}, the score of the pc is ${scorePc}`)
+        scoreResult.textContent = `Your score is ${scoreUser}, the score of the pc is ${scorePc}`;
     } else if (player=="scissors" && computer=="rock") {
-        console.log( `You lose, ${computer} beats ${player}`);
+        choiceResult.textContent = `You choose ${player}, computer choose ${computer}`;
         scorePc++
-        console.log(`Your score is ${scoreUser}, the score of the pc is ${scorePc}`)
+        scoreResult.textContent = `Your score is ${scoreUser}, the score of the pc is ${scorePc}`;
 
     } else if (player==computer) {
-        console.log( "TIE!");
+        choiceResult.textContent = `You choose ${player}, computer choose ${computer}`;
+        scoreResult.textContent = ( "TIE!");
     } else {
-        console.log( `You win, ${player} beats ${computer}`);
+        choiceResult.textContent = `You choose ${player}, computer choose ${computer}`;
         scoreUser++
-        console.log(`Your score is ${scoreUser}, the score of the pc is ${scorePc}`)
+        scoreResult.textContent = `Your score is ${scoreUser}, the score of the pc is ${scorePc}`;
     }
 } 
 
