@@ -131,38 +131,6 @@ let playRound = function(player,computer=getComputerChoice()) {
 
 
 
-
-
-//this function has to run the game 5 times
-/*function game() {
-    for (let i=0;i<5;i++) {
-        playRound()
-    }
-}
-game() //Execute the game*/
-
-
-
-/*let whoWin = function() {
-    if (scorePc>scoreUser) {
-        console.log("PC WINS")
-    } else if (scoreUser>scorePc) {
-        console.log("YOU WIN!")
-    } else {
-        console.log("No one wins TIE!")
-    }
-        
-};*/
-
-//whoWin() //Execute who wins
-
-//EVENT LISTENER
-/*const button = document.querySelector("button");
-
-button1.addEventListener("click", () => {
-    playRound("rock")
-})*/
-
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
@@ -180,13 +148,6 @@ buttons.forEach((button) => {
 
 
 
-/*if (scorePc==5 || scoreUser==5) {
-    if (scorePc>scoreUser) {
-        console.log("pc wins");
-    } else {
-        console.log("player wins");
-    }
-} */
 
 
 
