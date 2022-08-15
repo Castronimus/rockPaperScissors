@@ -20,11 +20,75 @@ if player puts rock and computer choose paper put "You lose, paper beats rock!"
 that's the logic, you have to make too that the parameter player can receive input without
 case sensitive*/ 
 
+function check1() {
+    if (scoreUser==5 || scorePc==5) {
+        const choiceResult = document.querySelector(".choiceResult")
+        const scoreResult = document.querySelector(".scoreResult")
+        const question = document.querySelector(".question");
+        const button = document.querySelectorAll("button");
+        choiceResult.textContent = "";
+        scoreResult.textContent = "";
+        question.textContent = "";
+        button.textContent = "";
+    }
+}
 
-let scoreUser = 0;
+let check = function() {
+    console.log("CHEQUEADO UWU shy shy shy")
+    console.log(`PC SCORE: ${scorePc}`)
+    console.log(`USER SCORE: ${scoreUser}`)
+    if (scorePc==5 || scoreUser==5) {
+        const choiceResult = document.querySelector(".choiceResult")
+        const scoreResult = document.querySelector(".scoreResult")
+        const question = document.querySelector(".question");
+        const buttons = document.querySelectorAll("button");
+        const yesButton = document.createElement("button");
+        const buttonContainer = document.querySelector("body");
+        const oldButtons = document.querySelector(".button-container");
+        buttonContainer.appendChild(yesButton);
+        buttons.forEach((button) => {
+            button.parentElement.remove("button");
+        });
+        if (scorePc>scoreUser) {
+            choiceResult.textContent = `PC WINS!`;
+            scoreResult.textContent = "F";
+            question.textContent = "Wanna play again?";
+            yesButton.textContent = "YES"
+            yesButton.addEventListener("click", () => {
+                scorePc = 0;
+                scoreUser = 0;
+                buttonContainer.removeChild(yesButton);
+                choiceResult.textContent = ``;
+                scoreResult.textContent = "";
+                question.textContent = "Choose rock, paper or scissors";
+                buttonContainer.appendChild(oldButtons);
+            })
+
+
+        } else {
+            choiceResult.textContent = `YOU WIN!`;
+            scoreResult.textContent = "GG"
+            question.textContent = "Wanna play again?"
+            yesButton.textContent = "YES"
+            yesButton.addEventListener("click", () => {
+                scorePc = 0;
+                scoreUser = 0;
+                yesButton.textContent = "OWO";
+                buttonContainer.removeChild(yesButton);
+                choiceResult.textContent = ``;
+                scoreResult.textContent = "";
+                question.textContent = "Choose rock, paper or scissors";
+                buttonContainer.appendChild(oldButtons);
+            })
+
+        }
+    }
+};
+
 let scorePc = 0;
+let scoreUser = 0;
 
-function playRound(player,computer=getComputerChoice()) {
+let playRound = function(player,computer=getComputerChoice()) {
    // player = prompt("Rock, paper or scissors?"); //input
     const choiceResult = document.querySelector(".choiceResult")
     const scoreResult = document.querySelector(".scoreResult");
@@ -33,24 +97,41 @@ function playRound(player,computer=getComputerChoice()) {
         choiceResult.textContent = `You choose ${player}, computer choose ${computer}`;
         scorePc++
         scoreResult.textContent = `Your score is ${scoreUser}, the score of the pc is ${scorePc}`;
+        check();
+        
+
     } else if (player=="paper" && computer=="scissors") {
         choiceResult.textContent = `You choose ${player}, computer choose ${computer}`;
         scorePc++
         scoreResult.textContent = `Your score is ${scoreUser}, the score of the pc is ${scorePc}`;
+        check();
+        
+
     } else if (player=="scissors" && computer=="rock") {
         choiceResult.textContent = `You choose ${player}, computer choose ${computer}`;
         scorePc++
         scoreResult.textContent = `Your score is ${scoreUser}, the score of the pc is ${scorePc}`;
+        check();
+        
 
     } else if (player==computer) {
         choiceResult.textContent = `You choose ${player}, computer choose ${computer}`;
         scoreResult.textContent = ( "TIE!");
+        
+
     } else {
         choiceResult.textContent = `You choose ${player}, computer choose ${computer}`;
         scoreUser++
         scoreResult.textContent = `Your score is ${scoreUser}, the score of the pc is ${scorePc}`;
+        check();
+        
+
     }
 } 
+
+
+
+
 
 //this function has to run the game 5 times
 /*function game() {
@@ -62,7 +143,7 @@ game() //Execute the game*/
 
 
 
-let whoWin = function() {
+/*let whoWin = function() {
     if (scorePc>scoreUser) {
         console.log("PC WINS")
     } else if (scoreUser>scorePc) {
@@ -71,7 +152,7 @@ let whoWin = function() {
         console.log("No one wins TIE!")
     }
         
-};
+};*/
 
 //whoWin() //Execute who wins
 
@@ -95,4 +176,18 @@ buttons.forEach((button) => {
         }        
     });
 });
+
+
+
+
+/*if (scorePc==5 || scoreUser==5) {
+    if (scorePc>scoreUser) {
+        console.log("pc wins");
+    } else {
+        console.log("player wins");
+    }
+} */
+
+
+
 
